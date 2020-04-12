@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  dotnet-test-sgf:
+    name: Test SGF package
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-dotnet@v1
+
+      - run: dotnet build
+      - run: dotnet test -v n
